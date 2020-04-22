@@ -52,6 +52,7 @@ public class UserDaoImpl implements UserDao {
         return ud;
 	}
 	
+	/*
 	@Override
 	public Boolean loginUser(Userdata u) {
 	Query q=em.createQuery("select m from Userdata m where m.userName=?1 and m.userPassword=?2");
@@ -69,4 +70,33 @@ public class UserDaoImpl implements UserDao {
     }
 	return false;
 	}
+	*/
+	
+	@Override
+	public String loginUser(Userdata u) {
+		String type = null;
+		String flag = null;
+	Query q=em.createQuery("select m.userType from Userdata m where m.userName=?1 and m.userPassword=?2");
+	String a=u.getUserName();
+	String b=u.getUserPassword();
+	q.setParameter(1,a);
+	q.setParameter(2,b);
+	try
+	{
+		type=(String) q.getSingleResult();
+		if(type.equalsIgnoreCase("admin") && type!=null) {
+			 flag="admin";
+		 }
+		 else if(!type.equalsIgnoreCase("admin") && type!=null)
+			 flag="student";
+		return flag;
+	}catch(javax.persistence.NoResultException e)
+    {
+        e.printStackTrace();
+    }
+	return "no";
+	}
+	
+	
+	
 }

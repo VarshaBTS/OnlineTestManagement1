@@ -39,9 +39,15 @@ return dao.deleteUser(userId);
 public Userdata updateUser(Userdata u) {
 return dao.updateUser(u);
 }
-
+/*
 @Override
 public Boolean loginUser(Userdata u)
+{
+return dao.loginUser(u);
+}
+*/
+@Override
+public String loginUser(Userdata u)
 {
 return dao.loginUser(u);
 }

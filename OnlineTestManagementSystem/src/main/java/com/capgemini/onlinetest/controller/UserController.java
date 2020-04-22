@@ -64,6 +64,7 @@ public class UserController {
 	@DeleteMapping("/DeleteUser/{userId}")
 	private ResponseEntity<String> deleteUser(@PathVariable("userId") int userId) {
 		Userdata e = serviceobj.deleteUser(userId);
+		System.out.println("controller delete");
 		if (e == null) {
 			throw new IdNotFoundException("Delete Operation Unsuccessful,Provided Id does not exist");
 		} else {
@@ -85,15 +86,22 @@ public class UserController {
 		}
 	}
 	*/
-	
+	/*
 	@PutMapping("/Loginuser")
 	public boolean loginUser(@RequestBody Userdata u)
 	{
-		
 		 boolean flag=serviceobj.loginUser(u);
 		 return flag;
 	}
+	*/
 	
+	@PutMapping("/Loginuser")
+	public String loginUser(@RequestBody Userdata u)
+	{
+		 String flag = null;
+		 String type=serviceobj.loginUser(u);
+		 return type;
+	}
 	
 
 	@ExceptionHandler(IdNotFoundException.class)

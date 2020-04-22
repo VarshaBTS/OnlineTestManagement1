@@ -18,8 +18,7 @@ public interface UserDao {
 
 	Userdata updateUser(Userdata u);
 
-	Boolean loginUser(Userdata u);
-
-
+	//Boolean loginUser(Userdata u);
+	String loginUser(Userdata u);
 	
 }
