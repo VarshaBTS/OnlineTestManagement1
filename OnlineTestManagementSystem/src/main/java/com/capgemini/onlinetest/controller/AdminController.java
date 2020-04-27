@@ -31,7 +31,7 @@ import com.capgemini.onlinetest.entity.Userdata;
 
 @RestController
 @RequestMapping("/admin")
-//@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 public class AdminController {
 	@Autowired
 	UserService serviceobj;
@@ -57,7 +57,6 @@ public class AdminController {
 	public ResponseEntity<List<Userdata>> getAllUsers() {
 		List<Userdata> userlist = serviceobj.getAllUsers();
 		return new ResponseEntity<List<Userdata>>(userlist, new HttpHeaders(), HttpStatus.OK);
-
 	}
 
 	//Update User
@@ -105,6 +104,7 @@ public class AdminController {
 		return ser.getAll();
 	}
 	
+	/*
 	//update question
 	@PutMapping("/uptquestions/{qid}")
 	public ResponseEntity<Questions> updateQ(@PathVariable(value="qid")int qid,@RequestBody Questions q){
@@ -119,6 +119,14 @@ public class AdminController {
 		
 		Questions q2=ser.save(q1);
 		return ResponseEntity.ok().body(q2);
+	}
+	*/
+	
+	//update question
+	@PutMapping("/uptques")
+	public ResponseEntity<Questions> updateQu(@RequestBody Questions q){
+		Questions q1=ser.updateQuestion(q);
+		return ResponseEntity.ok().body(q1);
 	}
 	
 	//delete question
@@ -196,7 +204,6 @@ public class AdminController {
 		t.setTquestions(l);
 		trep.save(t);*/
 	}
-	
 
 	@ExceptionHandler(IdNotFoundException.class)
 	public ResponseEntity<String> userNotFound(IdNotFoundException e) {

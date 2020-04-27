@@ -12,5 +12,6 @@ public interface QuestionsService {
 	public Optional<Questions> findQuestionById(int qid);
 	public void deleteQ(Questions q);
 	public List<Questions> getAll();
+	public Questions updateQuestion(Questions q);
 	
 }

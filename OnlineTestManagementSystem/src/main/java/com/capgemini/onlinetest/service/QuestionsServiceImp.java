@@ -43,4 +43,19 @@ public class QuestionsServiceImp implements QuestionsService{
 	public List<Questions> getAll() {
 		return qrep.findAll();
 	}
+
+	@Override
+	public Questions updateQuestion(Questions q) {
+		Questions qt=qrep.getOne(q.getQid());
+		if(qt!=null) {
+			qt.setQtitle(q.getQtitle());
+			qt.setOpt1(q.getOpt1());
+			qt.setOpt2(q.getOpt2());
+			qt.setQans(q.getQans());
+			qt.setQmarks(q.getQmarks());
+		}
+		Questions q1=qrep.save(qt);
+		return q1;
+		
+	}
 }

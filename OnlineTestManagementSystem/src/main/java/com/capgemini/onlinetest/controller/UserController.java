@@ -25,10 +25,10 @@ public class UserController {
 	TestService tser;
 	
 	//get all test
-		@GetMapping("/gett")
-		public List<Test> findT() {
-			return tser.getAll();
-		}
+	@GetMapping("/gett")
+	public List<Test> findT() {
+		return tser.getAll();
+	}
 	
 	
 }
