@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-@Table(name = "Userdata")
+@Table(name = "Userdata_otm")
 public class Userdata {
 	@Id
 	private int userId;
@@ -25,7 +25,7 @@ public class Userdata {
 	private long userPhoneno;
 	@Email(message="enter proper email id")
 	private String userEmail;
-	
+
 
 	
 	

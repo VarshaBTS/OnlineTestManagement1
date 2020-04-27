@@ -7,6 +7,6 @@ import com.capgemini.onlinetest.entity.Questions;
 
 
 @Repository
-public interface QuestionsRepository extends JpaRepository<Questions,Long>{
+public interface QuestionsRepository extends JpaRepository<Questions,Integer>{
 
 }
